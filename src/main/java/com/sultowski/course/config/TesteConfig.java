@@ -50,10 +50,19 @@ public class TesteConfig implements CommandLineRunner{
 		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, ""); 
 		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""); 
 		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
-
+	
 		userRep.saveAll(Arrays.asList(u1,u2));
 		orderRep.saveAll(Arrays.asList(o1,o2,o3));
 		categoryRep.saveAll(Arrays.asList(c1,c2,c3));
+		productRep.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+
+		p1.getCategories().add(c2);
+		p2.getCategories().add(c1);
+		p2.getCategories().add(c3);
+		p3.getCategories().add(c3);
+		p4.getCategories().add(c3);
+		p5.getCategories().add(c2);
+		
 		productRep.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 	}
 }
